@@ -21,6 +21,15 @@ app.use(function(req,res,next){
 );
 
 
+app.use(cors({
+    origin: ['http://localhost:4000'],
+    "methods": "GET,PUT,POST",
+    "preflightContinue": false,
+    "optionsSuccessStatus": 204,
+    credentials: true
+}));
+
+
 app.use('/api/registrados',require('./routes/registrado'));
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:false}));
